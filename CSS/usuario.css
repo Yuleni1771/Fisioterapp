@@ -1,0 +1,101 @@
+*{
+    box-sizing: border-box;
+    margin: 0rem;
+    padding: 1rem;
+}
+html{
+    background-color: #1d99ff62;
+    font-size: 62.5%;
+    font-family: 'Work Sans', sans-serif;
+}
+.nav img{
+    width: 6rem;
+    height: 6rem;
+    text-align: center;
+    background-color: #10BCE2;
+    padding: 0.5rem;
+    border-radius: 50rem;
+    margin: 1px;
+}
+.nav button{
+    width: auto;
+    height: auto;
+    padding: 1.5rem;
+    border-radius: 100rem;
+    background-color: #10BCE2;
+    color: aliceblue;
+    font-size: 1.5rem;
+    font-weight: 900;
+    border-style: none;
+}
+.nav ul, li{
+    list-style: none;
+}
+.nav ul li button:hover{
+    background-color: #0e7e97;
+}
+.nav li ul{
+    display: none;
+    position: absolute;
+}
+.nav li:hover > ul{
+    display: block;
+}
+.nav li{
+    width: 6rem;
+    height: 6rem;
+
+    margin: 1rem;
+    border-radius: 100rem;
+    color: aliceblue;
+    font-size: 1.5rem;
+    font-weight: 900;
+    border-style: none;
+}
+.seccionVertical{
+    display: flex;
+    flex-flow: column wrap;
+}
+.seccionHorizontal{
+    display: flex;
+    flex-flow: row wrap;
+    padding: 3rem;
+}
+
+h1{
+    font-size: 6rem;
+    text-align: center;
+    color: gray;
+}
+button{
+    width: auto;
+    height: auto;
+    font-size: 4rem;
+    padding: 3rem;
+    border-style: none;
+    border-radius: 50px 0px 50px 0px;
+    background-color: #66DAC7;
+    font-weight: bold;
+    color: aliceblue;
+    margin: 1rem;
+}
+button:hover{
+    background-color: #29a590;
+}
+h3{
+    font-size: 5rem;
+    color: gray;
+}
+input{
+    border-style: none;
+    background-color: aliceblue;
+    color: gray;
+    border-radius: 15px;
+    width: 100rem;
+    height: 6rem;
+    font-size: 2rem;
+    text-align: center;
+    margin: 2px;
+    margin-right: 3rem;
+    font-size: 3rem;
+}

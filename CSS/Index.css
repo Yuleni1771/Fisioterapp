@@ -1,0 +1,39 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    background-color: #1d99ff62;
+    font-size: 62.5%;
+    font-family: 'Work Sans', sans-serif;
+}
+.flexInicio{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+
+}
+button{
+    border-style: none;
+    background-color: #66DAC7;
+    border-radius: 100px 0px 100px 0px;
+    width: 50rem;
+    height: 25rem;
+    font-size: 15rem;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+    color: aliceblue;
+}
+button:hover{
+    background-color: #23bda3;
+}
+a{
+    text-decoration: none;
+}
+img{
+    width: 70rem;
+    height: auto;
+}
