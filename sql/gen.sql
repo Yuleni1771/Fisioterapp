@@ -1,3 +1,6 @@
+CREATE DATABASE proyectoAdmin;
+USE proyectoAdmin;
+
 DROP TABLE IF EXISTS `citas`;
 CREATE TABLE IF NOT EXISTS `citas` (
   `idCita` int(11) NOT NULL AUTO_INCREMENT,
