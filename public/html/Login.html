@@ -11,22 +11,26 @@
     <link rel="stylesheet" href="/css/Login.css">
 </head>
 <body>
-    <section class="flexInicio">
-        <section>
-            <img src="/img/Logo  Fisioterapp_Mesa de trabajo 1.png" alt="">
-        </section>
-        <section>
-            <section class="formulario">
-                <h1>LOGIN</h1><br><br><br>
-                <input id="usuario" type="text" placeholder="USUARIO"><br><br>
-                <input id="contrasenna" type="password" placeholder="CONTRASEÑA" required><br><br><br><br><br>
-                <button class="b1" onclick=login()>INGRESAR</button><br><br><br>
-                <p>SI NO TIENES CUENTA TE <br>PUEDES REGISTRAR AQUI</p><br><br><br>
-                <a href="/html/registro.html"><button class="b2">REGISTRO</button></a>
+    <form action=""  method="post" id="login">
+        <section class="flexInicio">
+            <section>
+                <img src="/img/Logo  Fisioterapp_Mesa de trabajo 1.png" alt="">
+            </section>
+            <section>
+                <section class="formulario">
+                    <h1>LOGIN</h1><br><br><br>
+                    <input name="usuario" type="text" placeholder="USUARIO" id="user"><br><br>
+                    <input name="contraseña" type="password" placeholder="CONTRASEÑA" id="pass" required><br><br><br><br><br>
+                    <!--<a href="/html/Menu.html">
+                    </a>-->
+                    <button class="b1" type="submit">INGRESAR</button>
+                    <br><br><br>
+                    <p>SI NO TIENES CUENTA TE <br>PUEDES REGISTRAR AQUI</p><br><br><br>
+                    <a href="/html/registro.html" class="b2">REGISTRO</a>
+                </section>
             </section>
         </section>
-    </section>
-	<script src="/js/ajax.js"></script>
-	<script src="/js/login.js"></script>
+    </form>
+    <script src="/js/login-datos.js"></script>
 </body>
 </html>
