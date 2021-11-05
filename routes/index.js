@@ -35,44 +35,15 @@ router.get("/fisioterapeutas", async (req, res) => {
 	res.send( await db.fisioterapeutas() );
 });
 
-  //función de crear un nuevo fisioterapeuta
-  router.post("/insertFisio", (req, res) => {
-    //console.log(req.body);
-    console.log(req.body);
-
-    const {
-      nombre,
-      apPaterno,
-      apMaterno,
-      dir,
-      contacto1,
-      contacto2,
-      puesto,
-      user,
-      pass,
-    } = req.body;
-    console.log("Info formateada: "+nombre, apPaterno, apMaterno, dir, contacto1, contacto2, puesto, user, pass);
-    connection.query(
-      "INSERT INTO fisioterapeuta  SET ?",
-      {
-        nombre,
-        apPaterno,
-        apMaterno,
-        dir,
-        contacto1,
-        contacto2,
-        puesto,
-        user,
-        pass,
-      },
-      (err, result) => {
-        if (err) {
-          console.log(err);
-          return  res.sendStatus(500);
-        } else  return res.status(200).json({status: 'success', data:res.body});
-      }
-    );
-  });
+//función de crear un nuevo fisioterapeuta
+router.post("/insertFisio", async (req, res) => {
+	console.log(req.body);
+	try{
+		res.status(200).json( await db.insertFisio( req.body ) );
+	}catch(err){
+		res.sendStatus(500);
+	}
+});
 
 //Función para el login [Obtener un registro ingresado]
 router.post("/loginFisio", async (req, res)=>{
