@@ -32,4 +32,6 @@ function envioBack(info){
         headers:{"Content-Type":"application/json"},
         body: JSON.stringify(info)
     }).then(response=>response.json()).then(console.log);
+    alert("Praciente creado");
+    window.location.href = "/html/Menu.html";
 }
