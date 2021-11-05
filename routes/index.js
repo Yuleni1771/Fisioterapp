@@ -73,25 +73,17 @@ router.get("/fisioterapeutas", async (req, res) => {
       }
     );
   });
-  //Función para el login [Obtener un registro ingresado]
-  router.post("/loginFisio",(req, res)=>{
-    console.log(req.body);
-    const {user, pass} = req.body;
-    //console.log(user+"Contraseña "+pass);
-    connection.query("SELECT COUNT(*) as registro FROM fisioterapeuta WHERE user=? AND pass=?", [user, pass], (err, result)=>{
-      if(err){
-        console.log("error: "+err);
-      }else{
-        if(result[0].registro>0){
-          //console.log("Se encontró el usuario: ", result);
-          //Enconttramos el usuario, pasamos al index del usaurio
-        res.status(200).send("1");
-        }else{
-          res.send("0");
-        }
-      }
-    });
-  });
+
+//Función para el login [Obtener un registro ingresado]
+router.post("/loginFisio", async (req, res)=>{
+	try{
+		result = await db.loginFisio( req.body );
+		res.status(200).send("1");
+	}catch(err){
+		res.send("0");
+	}
+});
+
   //Función para la creación de citas
   router.post("/insertCitas", (req, res)=>{
     const{nombrePaciente, apPpaciente, apMpaciente, fecha, hora} = req.body;
