@@ -59,3 +59,6 @@ typings/
 
 # next.js build output
 .next
+
+# Dependecy of dependecy (auto generated)
+package-lock.json

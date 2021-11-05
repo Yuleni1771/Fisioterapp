@@ -1,9 +1,20 @@
 # Fisioterapp
 
-Dependencias:
+## Dependencias:
 
 - Node.js
 - npm
+- MySQL
 
-Run:
-`npm run`
+## Instalación
+
+Instalar la base de datos
+
+### Linux
+`sudo sql/install.bash`
+
+### Windows
+`sql/install.cmd usuario contraseña`
+
+## Run:
+`npm start`

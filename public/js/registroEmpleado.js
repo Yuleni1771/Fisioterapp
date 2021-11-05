@@ -117,7 +117,7 @@ function envioBack(info) {
     .then((response) => response.json())
     .then(console.log);
   alert("Usuario creado");
-  window.location.href = "../HTML/Login.html";
+  window.location.href = "/html/Login.html";
 }
 
 /*
