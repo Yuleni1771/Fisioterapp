@@ -41,63 +41,23 @@ router.post("/loginFisio", async (req, res)=>{
 	}
 });
 
-  //Función para la creación de citas
-  router.post("/insertCitas", (req, res)=>{
-    const{nombrePaciente, apPpaciente, apMpaciente, fecha, hora} = req.body;
-    //let fecha = new Date(req.body.fecha).toString;
-    idEmpleado = Number(req.body.idEmpleado);
-    idPaciente = Number(req.body.idPaciente);
-    //comprobamos que el id del empleado exista
-    connection.query("SELECT COUNT(*) as filas FROM fisioterapeuta WHERE idEmpleado=?", idEmpleado, 
-    (err, rows)=>{
-      if(err){
-        console.log("Error: ",err);
-      }else{
-        //console.log(rows[0].filas);
-        if(rows[0].filas>0){
-          //Encontramos el empleado 
-          console.log("Encontramos al empleado");
-          connection.query("INSERT INTO citas SET ?", {nombrePaciente, apPpaciente, apMpaciente, fecha , hora, idEmpleado, idPaciente},
-          (err, result)=>{
-            if(err){
-              console.log(err);
-            }else{
-              res.status(200).send("Cita creada");
-            }
-          });
-        }else{
-          console.log("No encontramos al empleado");
-          res.send("ERROR");
-        }
-      }
-    });
-  });
-  //
-  router.post("/insertPaciente",(req,res)=>{
-    console.log(req.body);
-    const {
-      nombre,
-      edad,
-      diagnostico,
-      tratamiento
-    } = req.body;
-    console.log("Info format: "+nombre, edad, diagnostico, tratamiento);
-    connection.query(
-      "INSERT INTO paciente  SET ?",
-      {
-        nombre,
-        edad,
-        diagnostico,
-        tratamiento
-      },
-      (err, result) => {
-        if (err) {
-          console.log(err);
-          return  res.sendStatus(500);
-        } else  return res.status(200).json({status: 'success', data:req.body});
-      });
+//Función para la creación de citas
+router.post("/insertCitas", async (req, res)=>{
+	try{
+		res.status(200).send( await db.insertCitas( req.body ) );
+	}catch(err){
+		res.status(500).send("ERROR");
+	}
+});
 
-      //res.status(200).send("OK");
-  });
+//
+router.post("/insertPaciente", async(req,res)=>{
+	console.log(req.body);
+	try{ 
+		res.status(200).send( await db.insertPaciente( req.body ) );
+	}catch(err){
+		res.status(500).send();
+	}
+});
 
 module.exports = router;
