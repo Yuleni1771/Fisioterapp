@@ -19,7 +19,7 @@ form.addEventListener("submit", function (event) {
     i = JSON.parse(json)
     if (i == 1) {
       alert("Bienvenido");
-      window.location.href = "../HTML/Menu.html";
+      window.location.href = "/html/Menu.html";
     } else {
       alert("Error datos no encontrados");
     }
