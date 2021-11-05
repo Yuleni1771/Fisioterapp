@@ -21,40 +21,20 @@ router.post('/login', async function (req, res, next) {
 	}
 });
 
+router.get("/fisios", async (req, res) => {
+	res.json( await db.fisios() );
+});
 
-const connection = mysql.createConnection({
-    //Aquí pongan los datos de su base de datos
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "proyectoAdmin"
-  });
+//Muestra la información para los pacientes
+router.get("/pacientes", async (req, res)=>{
+	res.status(200).send( await db.pacientes() );
+});
 
-  router.get("/fisios", (req, res) => {
-    res.json({ mensaje: "bienvenido" });
-  });
-  //Obtenemos los datos de los pacientes para manejar un select con los datos de los pacientes
-  router.get("/pacientes",(req, res)=>{
-    //Muestra la información para los pacientes 
-    connection.query("Select idPaciente, nombre from paciente", (err, result)=>{
-      for(let i = 0; i<result.length; i++){
-        console.log("id: "+result[i].idPaciente+" nombre:"+result[i].nombre);
-        res.status(200).send(result[i].idPaciente+":"+result[i].nombre);
-      }
-    });
-  });
-  //Obtenemos a los fisioterapeutas
-  router.get("/fisioterapeutas", (req, result) => {
-    connection.query("Select * from fisioterapeuta", (err, res) => {
-      if (err) {
-        console.log("error: " + err);
-        //return null;
-      } else {
-        console.log("fisioterapeutas: ", res);
-        result.send(JSON.stringify(res));
-      }
-    });
-  });
+//Obtenemos a los fisioterapeutas
+router.get("/fisioterapeutas", async (req, res) => {
+	res.send( await db.fisioterapeutas() );
+});
+
   //función de crear un nuevo fisioterapeuta
   router.post("/insertFisio", (req, res) => {
     //console.log(req.body);
