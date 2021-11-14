@@ -1,6 +1,5 @@
-var express	= require('express');
+var router	= require('express').Router();
 var db		= require('../lib/mysql.js');
-var router	= express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
