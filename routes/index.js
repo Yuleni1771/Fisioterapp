@@ -1,9 +1,22 @@
 var router	= require('express').Router();
 var db		= require('../lib/mysql.js');
+var debug	= require('debug')('app:index:');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+	res.redirect('/index.html');
+});
+
+router.post('/login', async (req, res)=> {
+	try{
+		debug( req.body );
+		if( await db.login( req.body ) )
+			res.status(204).send();
+		else res.status(401).send();
+	}catch(err){
+		debug(err);
+		res.status(err.status).send();
+	}
 });
 
 router.get("/fisios", async (req, res) => {

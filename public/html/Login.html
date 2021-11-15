@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/Login.css">
 </head>
 <body>
-    <form action=""  method="post" id="login">
+    <form id="login">
         <section class="flexInicio">
             <section>
                 <img src="/img/Logo  Fisioterapp_Mesa de trabajo 1.png" alt="">
@@ -23,7 +23,7 @@
                     <input name="contraseña" type="password" placeholder="CONTRASEÑA" id="pass" required><br><br><br><br><br>
                     <!--<a href="/html/Menu.html">
                     </a>-->
-                    <button class="b1" type="submit">INGRESAR</button>
+                    <button class="b1" onclick=login()>INGRESAR</button>
                     <br><br><br>
                     <p>SI NO TIENES CUENTA TE <br>PUEDES REGISTRAR AQUI</p><br><br><br>
                     <a href="/html/registro.html" class="b2">REGISTRO</a>
@@ -31,6 +31,6 @@
             </section>
         </section>
     </form>
-    <script src="/js/login-datos.js"></script>
+    <script src="/js/login.js"></script>
 </body>
 </html>
