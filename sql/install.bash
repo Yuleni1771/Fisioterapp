@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for file in gen user proc; do
+for file in gen user proc data; do
 	echo Ejecutando SQL: $file
 	mysql < $file.sql
 done;

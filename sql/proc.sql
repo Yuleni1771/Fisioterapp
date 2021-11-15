@@ -38,6 +38,6 @@ end //
 drop procedure if exists login;
 create procedure login( IN user_in varchar(20), IN pass_in varchar(20) )
 begin
-	select nombre from fisioterapeuta where user=user_in and pass=pass_in;
+	select pass=pass_in as log from fisioterapeuta where user=user_in;
 end //
 delimiter ;
