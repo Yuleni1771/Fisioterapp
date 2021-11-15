@@ -35,6 +35,10 @@ create procedure addFisio(
 	);
 end //
 
+-- Iniciar sesión
+-- Se busca el usuario en la tabla y despues se compara la contraseña
+-- esto debería devolver un query vacio si el usuario no existe,
+-- 1 si la contraseña es correcta y 0 si no lo es.
 drop procedure if exists login;
 create procedure login( IN user_in varchar(20), IN pass_in varchar(20) )
 begin

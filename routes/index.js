@@ -7,14 +7,21 @@ router.get('/', function(req, res, next) {
 	res.redirect('/index.html');
 });
 
+/* Iniciar sesión
+ * La función asyncrona espera la respuesta de la base de datos
+ * al entregarle el usuario y contraseña que deben estar en el
+ * cuerpo de la solicitud como user y pass.
+ * La base de datos responderá con un boleano comparando la
+ * contraseña. Si el usuario no existe arrojara un 404.
+ * Se envia un 204 si el usuario inicia la session y 401 si la
+ * contraseña es erronea.
+ * */
 router.post('/login', async (req, res)=> {
 	try{
-		debug( req.body );
 		if( await db.login( req.body ) )
 			res.status(204).send();
 		else res.status(401).send();
 	}catch(err){
-		debug(err);
 		res.status(err.status).send();
 	}
 });
